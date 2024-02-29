@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": -27.36,
+    "latitude": 24.55286657,
+    "longitude": -81.79369981,
+    "maxZoom": 15,
+    "minZoom": 5,
+    "pitch": 40.5,
+    "zoom": 12
+  },
+  "layers": [
+    {
+      "@@type": "ColumnLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "Ae_aegypti_males": 58,
+          "Latitude": 24.55189766,
+          "Longitude": -81.80394006
+        },
+        {
+          "Ae_aegypti_males": 419,
+          "Latitude": 24.55432048,
+          "Longitude": -81.80021544
+        },
+        {
+          "Ae_aegypti_males": 31,
+          "Latitude": 24.55449818,
+          "Longitude": -81.79595899
+        },
+        {
+          "Ae_aegypti_males": 68,
+          "Latitude": 24.55123694,
+          "Longitude": -81.79569779
+        },
+        {
+          "Ae_aegypti_males": 185,
+          "Latitude": 24.55492582,
+          "Longitude": -81.78877518
+        },
+        {
+          "Ae_aegypti_males": 104,
+          "Latitude": 24.55522359,
+          "Longitude": -81.78684029
+        },
+        {
+          "Ae_aegypti_males": 98,
+          "Latitude": 24.54874115,
+          "Longitude": -81.78488391
+        },
+        {
+          "Ae_aegypti_males": 253,
+          "Latitude": 24.56029849,
+          "Longitude": -81.77583283
+        }
+      ],
+      "elevationScale": 10,
+      "getElevation": "@@=Ae_aegypti_males",
+      "getFillColor": [
+        180,
+        0,
+        200,
+        140
+      ],
+      "getPosition": "@@=[Longitude, Latitude]",
+      "id": "e772ef34-f05c-4cd3-bc7f-4c4fb929e342",
+      "pickable": true,
+      "radius": 75
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
